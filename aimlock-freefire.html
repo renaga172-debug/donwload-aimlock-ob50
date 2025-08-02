@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistem Terdeteksi Terinfeksi</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: red;
+      font-family: monospace;
+      text-align: center;
+      padding: 50px;
+      user-select: none;
+    }
+
+    .warning {
+      font-size: 24px;
+      animation: blink 1s infinite;
+    }
+
+    .details {
+      margin-top: 20px;
+      color: yellow;
+      font-size: 16px;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body oncontextmenu="return false" onkeydown="return false" onmousedown="return false">
+
+  <h1 class="warning">⚠️ PERINGATAN: Malware Terdeteksi ⚠️</h1>
+
+  <div class="details">
+    Nama Virus: Trojan.Mobile.Faker<br>
+    Status: AKTIF 🔴<br>
+    File sistem telah disusupi.<br>
+    Mengumpulkan data kontak, lokasi, dan file pribadi...<br><br>
+    <strong>HP Anda akan dikunci dalam:</strong>
+    <div id="countdown" style="font-size:28px; margin-top:10px;">5</div>
+  </div>
+
+  <script>
+    let timeLeft = 5;
+    const countdown = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdown.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        document.body.innerHTML = `
+          <h1 style="color:lime;">😄 PRANK BERHASIL!</h1>
+          <p style="color:white;">HP kamu tidak kena virus, ini cuma lelucon 😜</p>
+        `;
+        document.body.style.backgroundColor = "#111";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
